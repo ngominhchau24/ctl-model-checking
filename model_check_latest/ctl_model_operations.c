@@ -6,6 +6,11 @@
 
 /* Model Operations */
 
+// Define the global variables
+int g_num_states        = 0;
+int g_num_props         = 0;
+int g_max_transitions   = 0;
+
 // Create a new empty model
 Model* create_model() {
     Model* model = (Model*)malloc(sizeof(Model));
@@ -16,10 +21,27 @@ Model* create_model() {
     
     model->num_states = 0;
     model->num_props = 0;
-    
+
+    // Set global dimensions
+    g_num_states    = 0;
+    g_num_props     = 0;
+    g_max_transitions = 0;
     return model;
 }
 
+// Update the global model dimensions
+void update_global_dimensions(Model* model) {
+    g_num_states = model->num_states;
+    g_num_props = model->num_props;
+    
+    // Find max transitions
+    g_max_transitions = 0;
+    for (int i = 0; i < model->num_states; i++) {
+        if (model->states[i].num_transitions > g_max_transitions) {
+            g_max_transitions = model->states[i].num_transitions;
+        }
+    }
+}
 // Free a model
 void free_model(Model* model) {
     if (model == NULL) return;
@@ -165,7 +187,8 @@ void complement_state_set(StateSet* result, StateSet* set, int num_states) {
 // Set intersection (X ∩ Y)
 void intersect_state_sets(StateSet* result, StateSet* set1, StateSet* set2) {
     result->size = 0;
-    for (int i = 0; i < MAX_STATES; i++) {
+    // for (int i = 0; i < MAX_STATES; i++) { 
+    for (int i = 0; i < g_num_states; i++) { 
         result->members[i] = set1->members[i] && set2->members[i];
         if (result->members[i]) {
             result->size++;
@@ -177,6 +200,7 @@ void intersect_state_sets(StateSet* result, StateSet* set1, StateSet* set2) {
 void union_state_sets(StateSet* result, StateSet* set1, StateSet* set2) {
     result->size = 0;
     for (int i = 0; i < MAX_STATES; i++) {
+    // for (int i = 0; i < g_num_states; i++) {
         result->members[i] = set1->members[i] || set2->members[i];
         if (result->members[i]) {
             result->size++;
@@ -187,14 +211,15 @@ void union_state_sets(StateSet* result, StateSet* set1, StateSet* set2) {
 // Copy state set
 void copy_state_set(StateSet* dest, StateSet* src) {
     dest->size = src->size;
-    for (int i = 0; i < MAX_STATES; i++) {
+    // for (int i = 0; i < MAX_STATES; i++) {
+    for (int i = 0; i < g_num_states; i++) {
         dest->members[i] = src->members[i];
     }
 }
 
 // Compare two state sets and return true if they are equal
 bool compare_state_sets(StateSet* set1, StateSet* set2) {
-    for (int i = 0; i < MAX_STATES; i++) {
+    for (int i = 0; i < g_num_states; i++) {
         if (set1->members[i] != set2->members[i]) {
             return false;
         }
@@ -222,9 +247,14 @@ void print_state_set(StateSet* set, Model* model, const char* label) {
 
 // Print information about a model
 void print_model_info(Model* model) {
+    int total_transitions = 0;
     printf("Model information:\n");
     printf("Number of states: %d\n", model->num_states);
     printf("Number of propositions: %d\n", model->num_props);
+    for (int i = 0; i < model->num_states; i++) {
+        total_transitions += model->states[i].num_transitions;
+    }
+    printf("Total number of transitions: %d\n", total_transitions);
     
     printf("Propositions: ");
     for (int i = 0; i < model->num_props; i++) {
@@ -388,6 +418,9 @@ Model* create_mutex_model() {
     
     // From state 8 (tc)
     add_transition(model, 8, 7); // tc -> nc
+
+    update_global_dimensions(model);
+    // Print model information
     
     return model;
 }

@@ -276,6 +276,10 @@ void verify_equation7(Model* model, int prop_p) {
         
         // Check if fixed point is reached
         changed = !compare_state_sets(&z_current, &z_next);
+        if (!changed) {
+            printf("    Next Iteration %d: Z_%d = ", iteration, iteration);
+            print_state_set(&z_next, model, "next Z");
+        }
         
         // Update Z for next iteration
         copy_state_set(&z_current, &z_next);
@@ -332,6 +336,10 @@ void verify_equation8(Model* model, int prop_p) {
         
         // Check if fixed point is reached
         changed = !compare_state_sets(&z_current, &z_next);
+        if (!changed) {
+            printf("    Next Iteration %d: Z_%d = ", iteration, iteration);
+            print_state_set(&z_next, model, "next Z");
+        }
         
         // Update Z for next iteration
         copy_state_set(&z_current, &z_next);
@@ -386,6 +394,10 @@ void verify_equation9(Model* model, int prop_p) {
         
         // Check if fixed point is reached
         changed = !compare_state_sets(&z_current, &z_next);
+        if (!changed) {
+            printf("    Next Iteration %d: Z_%d = ", iteration, iteration);
+            print_state_set(&z_next, model, "next Z");
+        }
         
         // Update Z for next iteration
         copy_state_set(&z_current, &z_next);
@@ -461,6 +473,10 @@ void verify_equation10(Model* model, int prop_p) {
         
         // Check if fixed point is reached
         changed = !compare_state_sets(&z_current, &z_next);
+        if (!changed) {
+            printf("    Next Iteration %d: Z_%d = ", iteration, iteration);
+            print_state_set(&z_next, model, "next Z");
+        }
         
         // Update Z for next iteration
         copy_state_set(&z_current, &z_next);
@@ -541,9 +557,13 @@ void verify_equation11(Model* model, int prop_p, int prop_q) {
         
         // Calculate Z_next = [[Q]] ∪ ([[P]] ∩ τAX(Z_current))
         union_state_sets(&z_next, &q_result, &p_and_tau);
-        
+        print_state_set(&z_next, model, "next Z");
         // Check if fixed point is reached
         changed = !compare_state_sets(&z_current, &z_next);
+        if (!changed) {
+            printf("    Next Iteration %d: Z_%d = ", iteration, iteration);
+            print_state_set(&z_next, model, "next Z");
+        }
         
         // Update Z for next iteration
         copy_state_set(&z_current, &z_next);
@@ -608,6 +628,10 @@ void verify_equation12(Model* model, int prop_p, int prop_q) {
         
         // Check if fixed point is reached
         changed = !compare_state_sets(&z_current, &z_next);
+        if (!changed) {
+            printf("    Next Iteration %d: Z_%d = ", iteration, iteration);
+            print_state_set(&z_next, model, "next Z");
+        }
         
         // Update Z for next iteration
         copy_state_set(&z_current, &z_next);

@@ -30,16 +30,16 @@ int main() {
     
     // Verify all equations
     printf("\n===== Verifying Semantic Equations of Theorem 3 =====\n");
-    verify_equation1(model);
-    verify_equation2(model, 0); // Using p1n proposition
-    verify_equation3(model, 1, 2); // Using p1t and p1c propositions
-    verify_equation4(model, 3, 4); // Using p2t and p2c propositions
-    verify_equation5(model, 2); // Using p1c proposition
-    verify_equation6(model, 2); // Using p1c proposition
-    verify_equation7(model, 2); // Using p1c proposition
-    verify_equation8(model, 0); // Using p1n proposition
-    verify_equation9(model, 2); // Using p1c proposition
-    verify_equation10(model, 5); // Using p2t proposition
+   verify_equation1(model);
+   verify_equation2(model, 0); // Using p1n proposition
+   verify_equation3(model, 1, 2); // Using p1t and p1c propositions
+   verify_equation4(model, 3, 4); // Using p2t and p2c propositions
+   verify_equation5(model, 2); // Using p1c proposition
+   verify_equation6(model, 2); // Using p1c proposition
+   verify_equation7(model, 2); // Using p1c proposition
+   verify_equation8(model, 0); // Using p1n proposition
+   verify_equation9(model, 2); // Using p1c proposition
+   verify_equation10(model, 5); // Using p2t proposition
     verify_equation11(model, 1, 2); // Using p1t and p1c propositions
     verify_equation12(model, 3, 4); // Using p2t and p2c propositions
     
