@@ -1,0 +1,103 @@
+
+Equation 7. Verifying [[EF P]] = μZ.([[P]] ∪ τEX(Z)) where P = p1n:
+   This equation defines the semantics of the existential finally operator using a least fixpoint.
+   μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[P]] ∪ τEX(Z)) as a least fixpoint:
+  Starting with Z₀ = ∅ (empty set) and iterating:
+    Iteration 0: Z_0 = current Z = {}
+    Iteration 1: Z_1 = current Z = {0, 5, 7}
+    Iteration 2: Z_2 = current Z = {0, 2, 4, 5, 7, 8}
+    Iteration 3: Z_3 = current Z = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    Next Iteration 3: Z_3 = next Z = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    Fixed point reached at iteration 3
+  Computed [[EF P]] = EF P = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+  Manually computed μZ.([[P]] ∪ τEX(Z)) = fixed point = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+  Equation holds: YES
+
+
+Equation 7. Verifying [[EF P]] = μZ.([[P]] ∪ τEX(Z)) where P = p1t:
+   This equation defines the semantics of the existential finally operator using a least fixpoint.
+   μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[P]] ∪ τEX(Z)) as a least fixpoint:
+  Starting with Z₀ = ∅ (empty set) and iterating:
+    Iteration 0: Z_0 = current Z = {}
+    Iteration 1: Z_1 = current Z = {1, 3, 6, 8}
+    Iteration 2: Z_2 = current Z = {0, 1, 3, 5, 6, 8}
+    Iteration 3: Z_3 = current Z = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    Next Iteration 3: Z_3 = next Z = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    Fixed point reached at iteration 3
+  Computed [[EF P]] = EF P = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+  Manually computed μZ.([[P]] ∪ τEX(Z)) = fixed point = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+  Equation holds: YES
+
+
+Equation 7. Verifying [[EF P]] = μZ.([[P]] ∪ τEX(Z)) where P = p1c:
+   This equation defines the semantics of the existential finally operator using a least fixpoint.
+   μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[P]] ∪ τEX(Z)) as a least fixpoint:
+  Starting with Z₀ = ∅ (empty set) and iterating:
+    Iteration 0: Z_0 = current Z = {}
+    Iteration 1: Z_1 = current Z = {2, 4}
+    Iteration 2: Z_2 = current Z = {1, 2, 3, 4}
+    Iteration 3: Z_3 = current Z = {0, 1, 2, 3, 4}
+    Iteration 4: Z_4 = current Z = {0, 1, 2, 3, 4, 7}
+    Iteration 5: Z_5 = current Z = {0, 1, 2, 3, 4, 5, 7, 8}
+    Iteration 6: Z_6 = current Z = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    Next Iteration 6: Z_6 = next Z = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    Fixed point reached at iteration 6
+  Computed [[EF P]] = EF P = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+  Manually computed μZ.([[P]] ∪ τEX(Z)) = fixed point = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+  Equation holds: YES
+
+
+Equation 7. Verifying [[EF P]] = μZ.([[P]] ∪ τEX(Z)) where P = p2n:
+   This equation defines the semantics of the existential finally operator using a least fixpoint.
+   μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[P]] ∪ τEX(Z)) as a least fixpoint:
+  Starting with Z₀ = ∅ (empty set) and iterating:
+    Iteration 0: Z_0 = current Z = {}
+    Iteration 1: Z_1 = current Z = {0, 1, 2}
+    Iteration 2: Z_2 = current Z = {0, 1, 2, 7}
+    Iteration 3: Z_3 = current Z = {0, 1, 2, 5, 7, 8}
+    Iteration 4: Z_4 = current Z = {0, 1, 2, 4, 5, 6, 7, 8}
+    Iteration 5: Z_5 = current Z = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    Next Iteration 5: Z_5 = next Z = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    Fixed point reached at iteration 5
+  Computed [[EF P]] = EF P = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+  Manually computed μZ.([[P]] ∪ τEX(Z)) = fixed point = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+  Equation holds: YES
+
+
+Equation 7. Verifying [[EF P]] = μZ.([[P]] ∪ τEX(Z)) where P = p2t:
+   This equation defines the semantics of the existential finally operator using a least fixpoint.
+   μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[P]] ∪ τEX(Z)) as a least fixpoint:
+  Starting with Z₀ = ∅ (empty set) and iterating:
+    Iteration 0: Z_0 = current Z = {}
+    Iteration 1: Z_1 = current Z = {3, 4, 5, 6}
+    Iteration 2: Z_2 = current Z = {0, 1, 2, 3, 4, 5, 6}
+    Iteration 3: Z_3 = current Z = {0, 1, 2, 3, 4, 5, 6, 7}
+    Iteration 4: Z_4 = current Z = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    Next Iteration 4: Z_4 = next Z = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    Fixed point reached at iteration 4
+  Computed [[EF P]] = EF P = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+  Manually computed μZ.([[P]] ∪ τEX(Z)) = fixed point = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+  Equation holds: YES
+
+
+Equation 7. Verifying [[EF P]] = μZ.([[P]] ∪ τEX(Z)) where P = p2c:
+   This equation defines the semantics of the existential finally operator using a least fixpoint.
+   μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[P]] ∪ τEX(Z)) as a least fixpoint:
+  Starting with Z₀ = ∅ (empty set) and iterating:
+    Iteration 0: Z_0 = current Z = {}
+    Iteration 1: Z_1 = current Z = {7, 8}
+    Iteration 2: Z_2 = current Z = {5, 6, 7, 8}
+    Iteration 3: Z_3 = current Z = {0, 3, 4, 5, 6, 7, 8}
+    Iteration 4: Z_4 = current Z = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    Next Iteration 4: Z_4 = next Z = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    Fixed point reached at iteration 4
+  Computed [[EF P]] = EF P = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+  Manually computed μZ.([[P]] ∪ τEX(Z)) = fixed point = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+  Equation holds: YES
+

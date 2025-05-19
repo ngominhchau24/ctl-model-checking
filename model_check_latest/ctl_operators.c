@@ -67,7 +67,7 @@ void eval_ef(StateSet* result, StateSet* prop_p, Model* model) {
     StateSet current, next;
     
     // Initialize with states where P is true
-    init_state_set(&current, model->num_states);
+    init_state_set(&current, model->num_states); //model.num_states
     copy_state_set(&current, prop_p);
     
     bool changed = true;

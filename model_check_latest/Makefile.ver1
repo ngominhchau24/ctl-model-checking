@@ -1,0 +1,87 @@
+# Makefile for the CTL Verifier and Visualizer
+
+CC = gcc
+CFLAGS = -Wall -Wextra -g
+
+# Source files
+MODEL_SRC = ctl_model_operations.c
+OPERATORS_SRC = ctl_operators.c
+VERIFICATION_SRC = ctl_verification.c
+MAIN_SRC = ctl_main.c
+VIZ_SRC = ctl_visualizer.c
+
+# Object files
+MODEL_OBJ = $(MODEL_SRC:.c=.o)
+OPERATORS_OBJ = $(OPERATORS_SRC:.c=.o)
+VERIFICATION_OBJ = $(VERIFICATION_SRC:.c=.o)
+MAIN_OBJ = $(MAIN_SRC:.c=.o)
+VIZ_OBJ = $(VIZ_SRC:.c=.o)
+
+# All object files for verifier
+VERIFIER_OBJS = $(MODEL_OBJ) $(OPERATORS_OBJ) $(VERIFICATION_OBJ) $(MAIN_OBJ)
+
+# Common header
+HEADER = ctl_common.h
+
+# Targets
+all: ctl_verifier ctl_visualizer
+	./ctl_verifier
+
+former_model: ctl_verifier_old.c
+	@echo 
+	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
+	@echo 
+	$(CC) $(CFLAGS) -o ctl_verifier_old ctl_verifier_old.c
+
+# Compile each source file
+$(MODEL_OBJ): $(MODEL_SRC) $(HEADER)	
+	@echo 
+	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
+	@echo 
+
+	$(CC) $(CFLAGS) -c $(MODEL_SRC)
+
+$(OPERATORS_OBJ): $(OPERATORS_SRC) $(HEADER)
+	@echo 
+	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
+	@echo 
+	$(CC) $(CFLAGS) -c $(OPERATORS_SRC)
+
+$(VERIFICATION_OBJ): $(VERIFICATION_SRC) $(HEADER)
+	@echo 
+	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
+	@echo 
+	$(CC) $(CFLAGS) -c $(VERIFICATION_SRC)
+
+$(MAIN_OBJ): $(MAIN_SRC) $(HEADER)
+	@echo 
+	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
+	@echo 
+	$(CC) $(CFLAGS) -c $(MAIN_SRC)
+
+$(VIZ_OBJ): $(VIZ_SRC) $(HEADER)
+	@echo 
+	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
+	@echo 
+	$(CC) $(CFLAGS) -c $(VIZ_SRC)
+
+# Link verifier
+ctl_verifier: $(VERIFIER_OBJS)
+	@echo 
+	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
+	@echo 
+	$(CC) $(CFLAGS) -o $@ $(VERIFIER_OBJS)
+
+# Link visualizer
+ctl_visualizer: $(MODEL_OBJ) $(OPERATORS_OBJ) $(VIZ_OBJ)
+	@echo 
+	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
+	@echo 
+	$(CC) $(CFLAGS) -o $@ $(MODEL_OBJ) $(OPERATORS_OBJ) $(VIZ_OBJ)
+
+# Clean up
+clean:
+	@echo 
+	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
+	@echo 
+	rm -f ctl_verifier ctl_visualizer *.o *.dot *.png

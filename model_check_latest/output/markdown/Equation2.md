@@ -1,0 +1,21 @@
+# Equation 2 Verification Results
+
+## Equation:
+ [[¬P]] = W \ [[P]] where P = p1n:
+
+   This equation defines the semantics of negation in CTL.   Computed [[¬P]] = not P = {1, 2, 3, 4, 6, 8} 
+
+## Results:
+
+| P | Q | Computed | Manually Computed | Holds |
+|:---|:---|:---------|:-----------------|:------|
+| p1n |  | `{1, 2, 3, 4, 6, 8}` | `{1, 2, 3, 4, 6, 8}` | YES |
+| p1t |  | `{0, 2, 4, 5, 7}` | `{0, 2, 4, 5, 7}` | YES |
+| p1c |  | `{0, 1, 3, 5, 6, 7, 8}` | `{0, 1, 3, 5, 6, 7, 8}` | YES |
+| p2n |  | `{3, 4, 5, 6, 7, 8}` | `{3, 4, 5, 6, 7, 8}` | YES |
+| p2t |  | `{0, 1, 2, 7, 8}` | `{0, 1, 2, 7, 8}` | YES |
+| p2c |  | `{0, 1, 2, 3, 4, 5, 6}` | `{0, 1, 2, 3, 4, 5, 6}` | YES |
+
+---
+
+For more details, see the [log file](../log/Equation2.log).

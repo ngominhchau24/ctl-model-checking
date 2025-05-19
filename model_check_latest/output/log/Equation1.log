@@ -1,0 +1,48 @@
+
+Equation 1. Verifying [[p]] = [s ∈ W : v(s)(p) = true] where P =p1n:
+   This equation defines the semantics of atomic propositions in CTL.
+  Computed [[p]] = p = {0, 5, 7}
+  Manually computed [s ∈ W : v(s)(p1n) = true] = manual result = {0, 5, 7}
+  Equation holds: YES
+
+
+
+Equation 1. Verifying [[p]] = [s ∈ W : v(s)(p) = true] where P =p1t:
+   This equation defines the semantics of atomic propositions in CTL.
+  Computed [[p]] = p = {1, 3, 6, 8}
+  Manually computed [s ∈ W : v(s)(p1t) = true] = manual result = {1, 3, 6, 8}
+  Equation holds: YES
+
+
+
+Equation 1. Verifying [[p]] = [s ∈ W : v(s)(p) = true] where P =p1c:
+   This equation defines the semantics of atomic propositions in CTL.
+  Computed [[p]] = p = {2, 4}
+  Manually computed [s ∈ W : v(s)(p1c) = true] = manual result = {2, 4}
+  Equation holds: YES
+
+
+
+Equation 1. Verifying [[p]] = [s ∈ W : v(s)(p) = true] where P =p2n:
+   This equation defines the semantics of atomic propositions in CTL.
+  Computed [[p]] = p = {0, 1, 2}
+  Manually computed [s ∈ W : v(s)(p2n) = true] = manual result = {0, 1, 2}
+  Equation holds: YES
+
+
+
+Equation 1. Verifying [[p]] = [s ∈ W : v(s)(p) = true] where P =p2t:
+   This equation defines the semantics of atomic propositions in CTL.
+  Computed [[p]] = p = {3, 4, 5, 6}
+  Manually computed [s ∈ W : v(s)(p2t) = true] = manual result = {3, 4, 5, 6}
+  Equation holds: YES
+
+
+
+Equation 1. Verifying [[p]] = [s ∈ W : v(s)(p) = true] where P =p2c:
+   This equation defines the semantics of atomic propositions in CTL.
+  Computed [[p]] = p = {7, 8}
+  Manually computed [s ∈ W : v(s)(p2c) = true] = manual result = {7, 8}
+  Equation holds: YES
+
+

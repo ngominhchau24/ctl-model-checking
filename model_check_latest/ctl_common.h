@@ -15,6 +15,7 @@
 extern int g_num_states;
 extern int g_num_props;
 extern int g_max_transitions;
+extern char* msg_tag;
 
 typedef struct {
     int id;
@@ -77,7 +78,7 @@ int get_transition(Model* model, int state_id, int transition_index);
 bool is_prop_true(Model* model, int state_id, int prop_id);
 
 // Equation verification functions
-void verify_equation1(Model* model);
+void verify_equation1(Model* model, int prop_p);
 void verify_equation2(Model* model, int prop_p);
 void verify_equation3(Model* model, int prop_p, int prop_q);
 void verify_equation4(Model* model, int prop_p, int prop_q);

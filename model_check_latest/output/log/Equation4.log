@@ -1,0 +1,63 @@
+
+Equation 4. Verifying [[P ∨ Q]] = [[P]] ∪ [[Q]] where P = p1n, Q = p2n:
+   This equation defines the semantics of disjunction in CTL.
+  Computed [[P ∨ Q]] = P ∨ Q = {0, 1, 2, 5, 7}
+  Manually computed [[P]] ∪ [[Q]] = union = {0, 1, 2, 5, 7}
+  Equation holds: YES
+
+
+Equation 4. Verifying [[P ∨ Q]] = [[P]] ∪ [[Q]] where P = p1n, Q = p2t:
+   This equation defines the semantics of disjunction in CTL.
+  Computed [[P ∨ Q]] = P ∨ Q = {0, 3, 4, 5, 6, 7}
+  Manually computed [[P]] ∪ [[Q]] = union = {0, 3, 4, 5, 6, 7}
+  Equation holds: YES
+
+
+Equation 4. Verifying [[P ∨ Q]] = [[P]] ∪ [[Q]] where P = p1n, Q = p2c:
+   This equation defines the semantics of disjunction in CTL.
+  Computed [[P ∨ Q]] = P ∨ Q = {0, 5, 7, 8}
+  Manually computed [[P]] ∪ [[Q]] = union = {0, 5, 7, 8}
+  Equation holds: YES
+
+
+Equation 4. Verifying [[P ∨ Q]] = [[P]] ∪ [[Q]] where P = p1t, Q = p2n:
+   This equation defines the semantics of disjunction in CTL.
+  Computed [[P ∨ Q]] = P ∨ Q = {0, 1, 2, 3, 6, 8}
+  Manually computed [[P]] ∪ [[Q]] = union = {0, 1, 2, 3, 6, 8}
+  Equation holds: YES
+
+
+Equation 4. Verifying [[P ∨ Q]] = [[P]] ∪ [[Q]] where P = p1t, Q = p2t:
+   This equation defines the semantics of disjunction in CTL.
+  Computed [[P ∨ Q]] = P ∨ Q = {1, 3, 4, 5, 6, 8}
+  Manually computed [[P]] ∪ [[Q]] = union = {1, 3, 4, 5, 6, 8}
+  Equation holds: YES
+
+
+Equation 4. Verifying [[P ∨ Q]] = [[P]] ∪ [[Q]] where P = p1t, Q = p2c:
+   This equation defines the semantics of disjunction in CTL.
+  Computed [[P ∨ Q]] = P ∨ Q = {1, 3, 6, 7, 8}
+  Manually computed [[P]] ∪ [[Q]] = union = {1, 3, 6, 7, 8}
+  Equation holds: YES
+
+
+Equation 4. Verifying [[P ∨ Q]] = [[P]] ∪ [[Q]] where P = p1c, Q = p2n:
+   This equation defines the semantics of disjunction in CTL.
+  Computed [[P ∨ Q]] = P ∨ Q = {0, 1, 2, 4}
+  Manually computed [[P]] ∪ [[Q]] = union = {0, 1, 2, 4}
+  Equation holds: YES
+
+
+Equation 4. Verifying [[P ∨ Q]] = [[P]] ∪ [[Q]] where P = p1c, Q = p2t:
+   This equation defines the semantics of disjunction in CTL.
+  Computed [[P ∨ Q]] = P ∨ Q = {2, 3, 4, 5, 6}
+  Manually computed [[P]] ∪ [[Q]] = union = {2, 3, 4, 5, 6}
+  Equation holds: YES
+
+
+Equation 4. Verifying [[P ∨ Q]] = [[P]] ∪ [[Q]] where P = p1c, Q = p2c:
+   This equation defines the semantics of disjunction in CTL.
+  Computed [[P ∨ Q]] = P ∨ Q = {2, 4, 7, 8}
+  Manually computed [[P]] ∪ [[Q]] = union = {2, 4, 7, 8}
+  Equation holds: YES
+

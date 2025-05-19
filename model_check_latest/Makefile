@@ -3,6 +3,8 @@
 CC = gcc
 CFLAGS = -Wall -Wextra -g
 
+OBJDIR = sim
+OUTPUT_DIR = output
 # Source files
 MODEL_SRC = ctl_model_operations.c
 OPERATORS_SRC = ctl_operators.c
@@ -10,12 +12,12 @@ VERIFICATION_SRC = ctl_verification.c
 MAIN_SRC = ctl_main.c
 VIZ_SRC = ctl_visualizer.c
 
-# Object files
-MODEL_OBJ = $(MODEL_SRC:.c=.o)
-OPERATORS_OBJ = $(OPERATORS_SRC:.c=.o)
-VERIFICATION_OBJ = $(VERIFICATION_SRC:.c=.o)
-MAIN_OBJ = $(MAIN_SRC:.c=.o)
-VIZ_OBJ = $(VIZ_SRC:.c=.o)
+# Object files (now in sim/)
+MODEL_OBJ = $(OBJDIR)/$(MODEL_SRC:.c=.o)
+OPERATORS_OBJ = $(OBJDIR)/$(OPERATORS_SRC:.c=.o)
+VERIFICATION_OBJ = $(OBJDIR)/$(VERIFICATION_SRC:.c=.o)
+MAIN_OBJ = $(OBJDIR)/$(MAIN_SRC:.c=.o)
+VIZ_OBJ = $(OBJDIR)/$(VIZ_SRC:.c=.o)
 
 # All object files for verifier
 VERIFIER_OBJS = $(MODEL_OBJ) $(OPERATORS_OBJ) $(VERIFICATION_OBJ) $(MAIN_OBJ)
@@ -23,64 +25,41 @@ VERIFIER_OBJS = $(MODEL_OBJ) $(OPERATORS_OBJ) $(VERIFICATION_OBJ) $(MAIN_OBJ)
 # Common header
 HEADER = ctl_common.h
 
-# Targets
-all: ctl_verifier ctl_visualizer
 
-former_model: ctl_verifier_old.c
-	@echo 
-	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
-	@echo 
-	$(CC) $(CFLAGS) -o ctl_verifier_old ctl_verifier_old.c
+all: clean $(OBJDIR) ctl_verifier ctl_visualizer
+	./ctl_verifier | tee log
+	./improved_script.sh log $(OUTPUT_DIR)
+	cp $(OUTPUT_DIR)/markdown/summary.md summary.md
+# Ensure sim directory exists before compiling
+$(OBJDIR):
+	mkdir -p $(OBJDIR)
 
-# Compile each source file
-$(MODEL_OBJ): $(MODEL_SRC) $(HEADER)	
+$(OUTPUT_DIR):
+	mkdir -p $(OUTPUT_DIR)
+# Compile each source file to sim/
+$(OBJDIR)/%.o: %.c $(HEADER) | $(OBJDIR)
 	@echo 
-	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
+	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` compiling $< '*******'
 	@echo 
-
-	$(CC) $(CFLAGS) -c $(MODEL_SRC)
-
-$(OPERATORS_OBJ): $(OPERATORS_SRC) $(HEADER)
-	@echo 
-	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
-	@echo 
-	$(CC) $(CFLAGS) -c $(OPERATORS_SRC)
-
-$(VERIFICATION_OBJ): $(VERIFICATION_SRC) $(HEADER)
-	@echo 
-	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
-	@echo 
-	$(CC) $(CFLAGS) -c $(VERIFICATION_SRC)
-
-$(MAIN_OBJ): $(MAIN_SRC) $(HEADER)
-	@echo 
-	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
-	@echo 
-	$(CC) $(CFLAGS) -c $(MAIN_SRC)
-
-$(VIZ_OBJ): $(VIZ_SRC) $(HEADER)
-	@echo 
-	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
-	@echo 
-	$(CC) $(CFLAGS) -c $(VIZ_SRC)
+	$(CC) $(CFLAGS) -c $< -o $@
 
 # Link verifier
 ctl_verifier: $(VERIFIER_OBJS)
 	@echo 
-	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
+	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` linking $@ '*******'
 	@echo 
 	$(CC) $(CFLAGS) -o $@ $(VERIFIER_OBJS)
 
 # Link visualizer
 ctl_visualizer: $(MODEL_OBJ) $(OPERATORS_OBJ) $(VIZ_OBJ)
 	@echo 
-	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
+	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` linking $@ '*******'
 	@echo 
 	$(CC) $(CFLAGS) -o $@ $(MODEL_OBJ) $(OPERATORS_OBJ) $(VIZ_OBJ)
 
 # Clean up
 clean:
 	@echo 
-	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` executing target: $@ '*******'
+	@echo '*******' Makefile @`date '+%Y-%m-%d-%H:%M:%S'` cleaning up '*******'
 	@echo 
-	rm -f ctl_verifier ctl_visualizer *.o *.dot *.png
+	rm -rf ctl_verifier ctl_visualizer sim/*.o *.dot *.png log summary.md 

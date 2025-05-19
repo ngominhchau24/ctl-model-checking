@@ -1,0 +1,149 @@
+
+Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = p1n, Q = p2n:
+    This equation defines the semantics of the universal until operator using a least fixpoint.
+    μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) as a least fixpoint:
+  Starting with Z₀ = [[Q]] and iterating:
+    Iteration 0: Z_0 = current Z = {0, 1, 2}
+    Iteration 1: Z_1 = current Z = {0, 1, 2, 7}
+    Next Iteration 1: Z_1 = next Z = {0, 1, 2, 7}
+    Fixed point reached at iteration 1
+  Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
+  A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
+  Computed [[AP UQ]] = AU = {0, 5, 7}
+  Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {0, 1, 2, 7}
+  Equation holds: NO
+ [ERROR] Equation 12 not holds
+
+
+Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = p1n, Q = p2t:
+    This equation defines the semantics of the universal until operator using a least fixpoint.
+    μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) as a least fixpoint:
+  Starting with Z₀ = [[Q]] and iterating:
+    Iteration 0: Z_0 = current Z = {3, 4, 5, 6}
+    Next Iteration 0: Z_0 = next Z = {3, 4, 5, 6}
+    Fixed point reached at iteration 0
+  Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
+  A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
+  Computed [[AP UQ]] = AU = {4, 5}
+  Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {3, 4, 5, 6}
+  Equation holds: NO
+ [ERROR] Equation 12 not holds
+
+
+Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = p1n, Q = p2c:
+    This equation defines the semantics of the universal until operator using a least fixpoint.
+    μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) as a least fixpoint:
+  Starting with Z₀ = [[Q]] and iterating:
+    Iteration 0: Z_0 = current Z = {7, 8}
+    Next Iteration 0: Z_0 = next Z = {7, 8}
+    Fixed point reached at iteration 0
+  Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
+  A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
+  Computed [[AP UQ]] = AU = {5, 7, 8}
+  Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {7, 8}
+  Equation holds: NO
+ [ERROR] Equation 12 not holds
+
+
+Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = p1t, Q = p2n:
+    This equation defines the semantics of the universal until operator using a least fixpoint.
+    μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) as a least fixpoint:
+  Starting with Z₀ = [[Q]] and iterating:
+    Iteration 0: Z_0 = current Z = {0, 1, 2}
+    Next Iteration 0: Z_0 = next Z = {0, 1, 2}
+    Fixed point reached at iteration 0
+  Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
+  A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
+  Computed [[AP UQ]] = AU = {1, 3, 6, 8}
+  Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {0, 1, 2}
+  Equation holds: NO
+ [ERROR] Equation 12 not holds
+
+
+Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = p1t, Q = p2t:
+    This equation defines the semantics of the universal until operator using a least fixpoint.
+    μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) as a least fixpoint:
+  Starting with Z₀ = [[Q]] and iterating:
+    Iteration 0: Z_0 = current Z = {3, 4, 5, 6}
+    Next Iteration 0: Z_0 = next Z = {3, 4, 5, 6}
+    Fixed point reached at iteration 0
+  Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
+  A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
+  Computed [[AP UQ]] = AU = {3, 6}
+  Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {3, 4, 5, 6}
+  Equation holds: NO
+ [ERROR] Equation 12 not holds
+
+
+Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = p1t, Q = p2c:
+    This equation defines the semantics of the universal until operator using a least fixpoint.
+    μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) as a least fixpoint:
+  Starting with Z₀ = [[Q]] and iterating:
+    Iteration 0: Z_0 = current Z = {7, 8}
+    Iteration 1: Z_1 = current Z = {6, 7, 8}
+    Next Iteration 1: Z_1 = next Z = {6, 7, 8}
+    Fixed point reached at iteration 1
+  Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
+  A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
+  Computed [[AP UQ]] = AU = {3, 6, 8}
+  Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {6, 7, 8}
+  Equation holds: NO
+ [ERROR] Equation 12 not holds
+
+
+Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = p1c, Q = p2n:
+    This equation defines the semantics of the universal until operator using a least fixpoint.
+    μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) as a least fixpoint:
+  Starting with Z₀ = [[Q]] and iterating:
+    Iteration 0: Z_0 = current Z = {0, 1, 2}
+    Next Iteration 0: Z_0 = next Z = {0, 1, 2}
+    Fixed point reached at iteration 0
+  Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
+  A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
+  Computed [[AP UQ]] = AU = {2, 4}
+  Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {0, 1, 2}
+  Equation holds: NO
+ [ERROR] Equation 12 not holds
+
+
+Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = p1c, Q = p2t:
+    This equation defines the semantics of the universal until operator using a least fixpoint.
+    μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) as a least fixpoint:
+  Starting with Z₀ = [[Q]] and iterating:
+    Iteration 0: Z_0 = current Z = {3, 4, 5, 6}
+    Next Iteration 0: Z_0 = next Z = {3, 4, 5, 6}
+    Fixed point reached at iteration 0
+  Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
+  A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
+  Computed [[AP UQ]] = AU = {4}
+  Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {3, 4, 5, 6}
+  Equation holds: NO
+ [ERROR] Equation 12 not holds
+
+
+Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = p1c, Q = p2c:
+    This equation defines the semantics of the universal until operator using a least fixpoint.
+    μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) as a least fixpoint:
+  Starting with Z₀ = [[Q]] and iterating:
+    Iteration 0: Z_0 = current Z = {7, 8}
+    Next Iteration 0: Z_0 = next Z = {7, 8}
+    Fixed point reached at iteration 0
+  Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
+  A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
+  Computed [[AP UQ]] = AU = {4}
+  Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {7, 8}
+  Equation holds: NO
+ [ERROR] Equation 12 not holds
+
+===== Verification Complete =====
+All 12 equations from Theorem 3 have been verified.
+

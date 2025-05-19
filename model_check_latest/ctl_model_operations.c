@@ -10,7 +10,6 @@
 int g_num_states        = 0;
 int g_num_props         = 0;
 int g_max_transitions   = 0;
-
 // Create a new empty model
 Model* create_model() {
     Model* model = (Model*)malloc(sizeof(Model));

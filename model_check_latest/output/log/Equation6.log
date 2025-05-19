@@ -1,0 +1,54 @@
+
+Equation 6. Verifying [[AX P]] = τAX([[P]]) where P = p1n:
+   This equation defines the semantics of the universal next operator in CTL.
+   τAX(Z) = {s ∈ W : t ∈ Z for all states t with s y t}
+  Computing τAX manually:
+  Computed [[AX P]] = AX P = {4, 7, 8}
+  Manually computed τAX([[P]]) = τAX = {4, 7, 8}
+  Equation holds: YES
+
+
+Equation 6. Verifying [[AX P]] = τAX([[P]]) where P = p1t:
+   This equation defines the semantics of the universal next operator in CTL.
+   τAX(Z) = {s ∈ W : t ∈ Z for all states t with s y t}
+  Computing τAX manually:
+  Computed [[AX P]] = AX P = {6}
+  Manually computed τAX([[P]]) = τAX = {6}
+  Equation holds: YES
+
+
+Equation 6. Verifying [[AX P]] = τAX([[P]]) where P = p1c:
+   This equation defines the semantics of the universal next operator in CTL.
+   τAX(Z) = {s ∈ W : t ∈ Z for all states t with s y t}
+  Computing τAX manually:
+  Computed [[AX P]] = AX P = {}
+  Manually computed τAX([[P]]) = τAX = {}
+  Equation holds: YES
+
+
+Equation 6. Verifying [[AX P]] = τAX([[P]]) where P = p2n:
+   This equation defines the semantics of the universal next operator in CTL.
+   τAX(Z) = {s ∈ W : t ∈ Z for all states t with s y t}
+  Computing τAX manually:
+  Computed [[AX P]] = AX P = {7}
+  Manually computed τAX([[P]]) = τAX = {7}
+  Equation holds: YES
+
+
+Equation 6. Verifying [[AX P]] = τAX([[P]]) where P = p2t:
+   This equation defines the semantics of the universal next operator in CTL.
+   τAX(Z) = {s ∈ W : t ∈ Z for all states t with s y t}
+  Computing τAX manually:
+  Computed [[AX P]] = AX P = {3, 4}
+  Manually computed τAX([[P]]) = τAX = {3, 4}
+  Equation holds: YES
+
+
+Equation 6. Verifying [[AX P]] = τAX([[P]]) where P = p2c:
+   This equation defines the semantics of the universal next operator in CTL.
+   τAX(Z) = {s ∈ W : t ∈ Z for all states t with s y t}
+  Computing τAX manually:
+  Computed [[AX P]] = AX P = {6, 8}
+  Manually computed τAX([[P]]) = τAX = {6, 8}
+  Equation holds: YES
+

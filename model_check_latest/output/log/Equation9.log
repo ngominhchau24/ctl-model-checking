@@ -1,0 +1,110 @@
+
+Equation 9. Verifying [[AF P]] = μZ.([[P]] ∪ τAX(Z)) where P = p1n:
+   This equation defines the semantics of the always finally operator using a least fixpoint.
+   μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[P]] ∪ τAX(Z)) as a least fixpoint:
+  Starting with Z₀ = ∅ (empty set) and iterating:
+    Iteration 0: Z_0 = current Z = {}
+    Iteration 1: Z_1 = current Z = {0, 5, 7}
+    Iteration 2: Z_2 = current Z = {0, 4, 5, 7, 8}
+    Iteration 3: Z_3 = current Z = {0, 2, 4, 5, 6, 7, 8}
+    Iteration 4: Z_4 = current Z = {0, 2, 3, 4, 5, 6, 7, 8}
+    Iteration 5: Z_5 = current Z = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    Next Iteration 5: Z_5 = next Z = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    Fixed point reached at iteration 5
+  Alternative calculation: AF P = ¬EG ¬P
+  AF P = ¬EG ¬P: YES
+  Computed [[AF P]] = AF P = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+  Manually computed μZ.([[P]] ∪ τAX(Z)) = fixed point = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+  Equation holds: YES
+
+
+Equation 9. Verifying [[AF P]] = μZ.([[P]] ∪ τAX(Z)) where P = p1t:
+   This equation defines the semantics of the always finally operator using a least fixpoint.
+   μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[P]] ∪ τAX(Z)) as a least fixpoint:
+  Starting with Z₀ = ∅ (empty set) and iterating:
+    Iteration 0: Z_0 = current Z = {}
+    Iteration 1: Z_1 = current Z = {1, 3, 6, 8}
+    Next Iteration 1: Z_1 = next Z = {1, 3, 6, 8}
+    Fixed point reached at iteration 1
+  Alternative calculation: AF P = ¬EG ¬P
+  AF P = ¬EG ¬P: YES
+  Computed [[AF P]] = AF P = {1, 3, 6, 8}
+  Manually computed μZ.([[P]] ∪ τAX(Z)) = fixed point = {1, 3, 6, 8}
+  Equation holds: YES
+
+
+Equation 9. Verifying [[AF P]] = μZ.([[P]] ∪ τAX(Z)) where P = p1c:
+   This equation defines the semantics of the always finally operator using a least fixpoint.
+   μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[P]] ∪ τAX(Z)) as a least fixpoint:
+  Starting with Z₀ = ∅ (empty set) and iterating:
+    Iteration 0: Z_0 = current Z = {}
+    Iteration 1: Z_1 = current Z = {2, 4}
+    Next Iteration 1: Z_1 = next Z = {2, 4}
+    Fixed point reached at iteration 1
+  Alternative calculation: AF P = ¬EG ¬P
+  AF P = ¬EG ¬P: YES
+  Computed [[AF P]] = AF P = {2, 4}
+  Manually computed μZ.([[P]] ∪ τAX(Z)) = fixed point = {2, 4}
+  Equation holds: YES
+
+
+Equation 9. Verifying [[AF P]] = μZ.([[P]] ∪ τAX(Z)) where P = p2n:
+   This equation defines the semantics of the always finally operator using a least fixpoint.
+   μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[P]] ∪ τAX(Z)) as a least fixpoint:
+  Starting with Z₀ = ∅ (empty set) and iterating:
+    Iteration 0: Z_0 = current Z = {}
+    Iteration 1: Z_1 = current Z = {0, 1, 2}
+    Iteration 2: Z_2 = current Z = {0, 1, 2, 7}
+    Iteration 3: Z_3 = current Z = {0, 1, 2, 7, 8}
+    Iteration 4: Z_4 = current Z = {0, 1, 2, 6, 7, 8}
+    Iteration 5: Z_5 = current Z = {0, 1, 2, 5, 6, 7, 8}
+    Iteration 6: Z_6 = current Z = {0, 1, 2, 4, 5, 6, 7, 8}
+    Iteration 7: Z_7 = current Z = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    Next Iteration 7: Z_7 = next Z = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+    Fixed point reached at iteration 7
+  Alternative calculation: AF P = ¬EG ¬P
+  AF P = ¬EG ¬P: YES
+  Computed [[AF P]] = AF P = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+  Manually computed μZ.([[P]] ∪ τAX(Z)) = fixed point = {0, 1, 2, 3, 4, 5, 6, 7, 8}
+  Equation holds: YES
+
+
+Equation 9. Verifying [[AF P]] = μZ.([[P]] ∪ τAX(Z)) where P = p2t:
+   This equation defines the semantics of the always finally operator using a least fixpoint.
+   μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[P]] ∪ τAX(Z)) as a least fixpoint:
+  Starting with Z₀ = ∅ (empty set) and iterating:
+    Iteration 0: Z_0 = current Z = {}
+    Iteration 1: Z_1 = current Z = {3, 4, 5, 6}
+    Next Iteration 1: Z_1 = next Z = {3, 4, 5, 6}
+    Fixed point reached at iteration 1
+  Alternative calculation: AF P = ¬EG ¬P
+  AF P = ¬EG ¬P: YES
+  Computed [[AF P]] = AF P = {3, 4, 5, 6}
+  Manually computed μZ.([[P]] ∪ τAX(Z)) = fixed point = {3, 4, 5, 6}
+  Equation holds: YES
+
+
+Equation 9. Verifying [[AF P]] = μZ.([[P]] ∪ τAX(Z)) where P = p2c:
+   This equation defines the semantics of the always finally operator using a least fixpoint.
+   μZ.f(Z) denotes the least fixpoint of the operation f(Z).
+  Computing μZ.([[P]] ∪ τAX(Z)) as a least fixpoint:
+  Starting with Z₀ = ∅ (empty set) and iterating:
+    Iteration 0: Z_0 = current Z = {}
+    Iteration 1: Z_1 = current Z = {7, 8}
+    Iteration 2: Z_2 = current Z = {6, 7, 8}
+    Iteration 3: Z_3 = current Z = {5, 6, 7, 8}
+    Iteration 4: Z_4 = current Z = {4, 5, 6, 7, 8}
+    Iteration 5: Z_5 = current Z = {3, 4, 5, 6, 7, 8}
+    Next Iteration 5: Z_5 = next Z = {3, 4, 5, 6, 7, 8}
+    Fixed point reached at iteration 5
+  Alternative calculation: AF P = ¬EG ¬P
+  AF P = ¬EG ¬P: YES
+  Computed [[AF P]] = AF P = {3, 4, 5, 6, 7, 8}
+  Manually computed μZ.([[P]] ∪ τAX(Z)) = fixed point = {3, 4, 5, 6, 7, 8}
+  Equation holds: YES
+

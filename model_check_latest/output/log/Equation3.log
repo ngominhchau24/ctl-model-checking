@@ -1,0 +1,63 @@
+
+Equation 3. Verifying [[P ∧ Q]] = [[P]] ∩ [[Q]] where P = p1n, Q = p2n:
+   This equation defines the semantics of conjunction in CTL.
+  Computed [[P ∧ Q]] = P ∧ Q = {0}
+  Manually computed [[P]] ∩ [[Q]] = intersection = {0}
+  Equation holds: YES
+
+
+Equation 3. Verifying [[P ∧ Q]] = [[P]] ∩ [[Q]] where P = p1n, Q = p2t:
+   This equation defines the semantics of conjunction in CTL.
+  Computed [[P ∧ Q]] = P ∧ Q = {5}
+  Manually computed [[P]] ∩ [[Q]] = intersection = {5}
+  Equation holds: YES
+
+
+Equation 3. Verifying [[P ∧ Q]] = [[P]] ∩ [[Q]] where P = p1n, Q = p2c:
+   This equation defines the semantics of conjunction in CTL.
+  Computed [[P ∧ Q]] = P ∧ Q = {7}
+  Manually computed [[P]] ∩ [[Q]] = intersection = {7}
+  Equation holds: YES
+
+
+Equation 3. Verifying [[P ∧ Q]] = [[P]] ∩ [[Q]] where P = p1t, Q = p2n:
+   This equation defines the semantics of conjunction in CTL.
+  Computed [[P ∧ Q]] = P ∧ Q = {1}
+  Manually computed [[P]] ∩ [[Q]] = intersection = {1}
+  Equation holds: YES
+
+
+Equation 3. Verifying [[P ∧ Q]] = [[P]] ∩ [[Q]] where P = p1t, Q = p2t:
+   This equation defines the semantics of conjunction in CTL.
+  Computed [[P ∧ Q]] = P ∧ Q = {3, 6}
+  Manually computed [[P]] ∩ [[Q]] = intersection = {3, 6}
+  Equation holds: YES
+
+
+Equation 3. Verifying [[P ∧ Q]] = [[P]] ∩ [[Q]] where P = p1t, Q = p2c:
+   This equation defines the semantics of conjunction in CTL.
+  Computed [[P ∧ Q]] = P ∧ Q = {8}
+  Manually computed [[P]] ∩ [[Q]] = intersection = {8}
+  Equation holds: YES
+
+
+Equation 3. Verifying [[P ∧ Q]] = [[P]] ∩ [[Q]] where P = p1c, Q = p2n:
+   This equation defines the semantics of conjunction in CTL.
+  Computed [[P ∧ Q]] = P ∧ Q = {2}
+  Manually computed [[P]] ∩ [[Q]] = intersection = {2}
+  Equation holds: YES
+
+
+Equation 3. Verifying [[P ∧ Q]] = [[P]] ∩ [[Q]] where P = p1c, Q = p2t:
+   This equation defines the semantics of conjunction in CTL.
+  Computed [[P ∧ Q]] = P ∧ Q = {4}
+  Manually computed [[P]] ∩ [[Q]] = intersection = {4}
+  Equation holds: YES
+
+
+Equation 3. Verifying [[P ∧ Q]] = [[P]] ∩ [[Q]] where P = p1c, Q = p2c:
+   This equation defines the semantics of conjunction in CTL.
+  Computed [[P ∧ Q]] = P ∧ Q = {}
+  Manually computed [[P]] ∩ [[Q]] = intersection = {}
+  Equation holds: YES
+

@@ -1,0 +1,42 @@
+
+Equation 2. Verifying [[¬P]] = W \ [[P]] where P = p1n:
+   This equation defines the semantics of negation in CTL.
+  Computed [[¬P]] = not P = {1, 2, 3, 4, 6, 8}
+  Manually computed W \ [[P]] = complement = {1, 2, 3, 4, 6, 8}
+  Equation holds: YES
+
+
+Equation 2. Verifying [[¬P]] = W \ [[P]] where P = p1t:
+   This equation defines the semantics of negation in CTL.
+  Computed [[¬P]] = not P = {0, 2, 4, 5, 7}
+  Manually computed W \ [[P]] = complement = {0, 2, 4, 5, 7}
+  Equation holds: YES
+
+
+Equation 2. Verifying [[¬P]] = W \ [[P]] where P = p1c:
+   This equation defines the semantics of negation in CTL.
+  Computed [[¬P]] = not P = {0, 1, 3, 5, 6, 7, 8}
+  Manually computed W \ [[P]] = complement = {0, 1, 3, 5, 6, 7, 8}
+  Equation holds: YES
+
+
+Equation 2. Verifying [[¬P]] = W \ [[P]] where P = p2n:
+   This equation defines the semantics of negation in CTL.
+  Computed [[¬P]] = not P = {3, 4, 5, 6, 7, 8}
+  Manually computed W \ [[P]] = complement = {3, 4, 5, 6, 7, 8}
+  Equation holds: YES
+
+
+Equation 2. Verifying [[¬P]] = W \ [[P]] where P = p2t:
+   This equation defines the semantics of negation in CTL.
+  Computed [[¬P]] = not P = {0, 1, 2, 7, 8}
+  Manually computed W \ [[P]] = complement = {0, 1, 2, 7, 8}
+  Equation holds: YES
+
+
+Equation 2. Verifying [[¬P]] = W \ [[P]] where P = p2c:
+   This equation defines the semantics of negation in CTL.
+  Computed [[¬P]] = not P = {0, 1, 2, 3, 4, 5, 6}
+  Manually computed W \ [[P]] = complement = {0, 1, 2, 3, 4, 5, 6}
+  Equation holds: YES
+

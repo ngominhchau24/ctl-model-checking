@@ -4,44 +4,43 @@
 #include <stdlib.h>
 
 /* Equation Verification Functions */
+char* msg_tag = " CTL Model Checking ";
 
 // Function to verify equation 1: [[p]] = {s ∈ W : v(s)(p) = true}
-void verify_equation1(Model* model) {
-    printf("\n1. Verifying [[p]] = {s ∈ W : v(s)(p) = true}:\n");
+void verify_equation1(Model* model, int prop_p) {
+    printf("\nEquation 1. Verifying [[p]] = [s ∈ W : v(s)(p) = true] where P =%s:\n", model->prop_names[prop_p]);
     printf("   This equation defines the semantics of atomic propositions in CTL.\n");
+    msg_tag = "Equation 1";
+    // Get p
+    StateSet p_result;
+    eval_atomic_prop(&p_result, model, prop_p);
     
-    for (int p = 0; p < model->num_props; p++) {
-        // Get set of states where p is true using API
-        StateSet api_result;
-        eval_atomic_prop(&api_result, model, p);
-        
-        // Calculate set of states where p is true manually
-        StateSet manual_result;
-        init_state_set(&manual_result, model->num_states);
-        
-        printf("  For proposition '%s':\n", model->prop_names[p]);
-        
-        for (int s = 0; s < model->num_states; s++) {
-            if (model->states[s].atomic_props[p]) {
-                add_to_state_set(&manual_result, s);
-            }
+    // Calculate set of states where prop_p is true manually
+    StateSet manual_result;
+    init_state_set(&manual_result, model->num_states);
+    
+    for (int s = 0; s < model->num_states; s++) {
+        if (model->states[s].atomic_props[prop_p]) {
+            add_to_state_set(&manual_result, s);
         }
-        
-        // Compare results
-        bool equal = compare_state_sets(&api_result, &manual_result);
-        printf("  API result [[%s]] = ", model->prop_names[p]);
-        print_state_set(&api_result, model, "api result");
-        printf("  Manually computed {s ∈ W : v(s)(%s) = true} = ", model->prop_names[p]);
-        print_state_set(&manual_result, model, "manual result");
-        printf("  Equation holds: %s\n\n", equal ? "YES" : "NO");
     }
+    
+    // Compare results
+    bool equal = compare_state_sets(&p_result, &manual_result);
+    // printf("  API result [[%s]] = ", model->prop_names[p]);
+    printf("  Computed [[p]] = ");
+    print_state_set(&p_result, model, "p");
+    printf("  Manually computed [s ∈ W : v(s)(%s) = true] = ", model->prop_names[prop_p]);
+    print_state_set(&manual_result, model, "manual result");
+    printf("  Equation holds: %s\n\n", equal ? "YES" : "NO");
+
 }
 
 // Function to verify equation 2: [[¬P]] = W \ [[P]]
 void verify_equation2(Model* model, int prop_p) {
-    printf("\n2. Verifying [[¬P]] = W \\ [[P]] where P = %s:\n", model->prop_names[prop_p]);
+    printf("\nEquation 2. Verifying [[¬P]] = W \\ [[P]] where P = %s:\n", model->prop_names[prop_p]);
     printf("   This equation defines the semantics of negation in CTL.\n");
-    
+    msg_tag = "Equation 2";
     // Get [[P]]
     StateSet p_result;
     eval_atomic_prop(&p_result, model, prop_p);
@@ -67,14 +66,17 @@ void verify_equation2(Model* model, int prop_p) {
     printf("  Manually computed W \\ [[P]] = ");
     print_state_set(&complement_result, model, "complement");
     printf("  Equation holds: %s\n", equal ? "YES" : "NO");
+    if (!equal) {
+        printf(" [ERROR] %s not holds\n", msg_tag);
+    }
 }
 
 // Function to verify equation 3: [[P ∧ Q]] = [[P]] ∩ [[Q]]
 void verify_equation3(Model* model, int prop_p, int prop_q) {
-    printf("\n3. Verifying [[P ∧ Q]] = [[P]] ∩ [[Q]] where P = %s, Q = %s:\n", 
+    printf("\nEquation 3. Verifying [[P ∧ Q]] = [[P]] ∩ [[Q]] where P = %s, Q = %s:\n", 
            model->prop_names[prop_p], model->prop_names[prop_q]);
     printf("   This equation defines the semantics of conjunction in CTL.\n");
-    
+    msg_tag = "Equation 3";
     // Get [[P]]
     StateSet p_result;
     eval_atomic_prop(&p_result, model, prop_p);
@@ -105,14 +107,17 @@ void verify_equation3(Model* model, int prop_p, int prop_q) {
     printf("  Manually computed [[P]] ∩ [[Q]] = ");
     print_state_set(&intersection_manual, model, "intersection");
     printf("  Equation holds: %s\n", equal ? "YES" : "NO");
+    if (!equal) {
+        printf(" [ERROR] %s not holds\n", msg_tag);
+    }
 }
 
 // Function to verify equation 4: [[P ∨ Q]] = [[P]] ∪ [[Q]]
 void verify_equation4(Model* model, int prop_p, int prop_q) {
-    printf("\n4. Verifying [[P ∨ Q]] = [[P]] ∪ [[Q]] where P = %s, Q = %s:\n", 
+    printf("\nEquation 4. Verifying [[P ∨ Q]] = [[P]] ∪ [[Q]] where P = %s, Q = %s:\n", 
            model->prop_names[prop_p], model->prop_names[prop_q]);
     printf("   This equation defines the semantics of disjunction in CTL.\n");
-    
+    msg_tag = "Equation 4";
     // Get [[P]]
     StateSet p_result;
     eval_atomic_prop(&p_result, model, prop_p);
@@ -143,14 +148,18 @@ void verify_equation4(Model* model, int prop_p, int prop_q) {
     printf("  Manually computed [[P]] ∪ [[Q]] = ");
     print_state_set(&union_manual, model, "union");
     printf("  Equation holds: %s\n", equal ? "YES" : "NO");
+    if (!equal) {
+        printf(" [ERROR] %s not holds\n", msg_tag);
+    }
 }
 
 // Function to verify equation 5: [[EX P]] = τEX([[P]])
 void verify_equation5(Model* model, int prop_p) {
-    printf("\n5. Verifying [[EX P]] = τEX([[P]]) where P = %s:\n", model->prop_names[prop_p]);
+    printf("\nEquation 5. Verifying [[EX P]] = τEX([[P]]) where P = %s:\n", model->prop_names[prop_p]);
     printf("   This equation defines the semantics of the existential next operator in CTL.\n");
     printf("   τEX(Z) = {s ∈ W : t ∈ Z for some state t with s y t}\n");
-    
+    msg_tag = "Equation 5";
+
     // Get [[P]]
     StateSet p_result;
     eval_atomic_prop(&p_result, model, prop_p);
@@ -186,14 +195,18 @@ void verify_equation5(Model* model, int prop_p) {
     printf("  Manually computed τEX([[P]]) = ");
     print_state_set(&tau_ex_manual, model, "τEX");
     printf("  Equation holds: %s\n", equal ? "YES" : "NO");
+    if (!equal) {
+        printf(" [ERROR] %s not holds\n", msg_tag);
+    }
 }
 
 // Function to verify equation 6: [[AX P]] = τAX([[P]])
 void verify_equation6(Model* model, int prop_p) {
-    printf("\n6. Verifying [[AX P]] = τAX([[P]]) where P = %s:\n", model->prop_names[prop_p]);
+    printf("\nEquation 6. Verifying [[AX P]] = τAX([[P]]) where P = %s:\n", model->prop_names[prop_p]);
     printf("   This equation defines the semantics of the universal next operator in CTL.\n");
     printf("   τAX(Z) = {s ∈ W : t ∈ Z for all states t with s y t}\n");
-    
+    msg_tag = "Equation 6";
+
     // Get [[P]]
     StateSet p_result;
     eval_atomic_prop(&p_result, model, prop_p);
@@ -237,14 +250,18 @@ void verify_equation6(Model* model, int prop_p) {
     printf("  Manually computed τAX([[P]]) = ");
     print_state_set(&tau_ax_manual, model, "τAX");
     printf("  Equation holds: %s\n", equal ? "YES" : "NO");
+    if (!equal) {
+        printf(" [ERROR] %s not holds\n", msg_tag);
+    }
 }
 
 // Function to verify equation 7: [[EF P]] = μZ.([[P]] ∪ τEX(Z))
 void verify_equation7(Model* model, int prop_p) {
-    printf("\n7. Verifying [[EF P]] = μZ.([[P]] ∪ τEX(Z)) where P = %s:\n", model->prop_names[prop_p]);
+    printf("\nEquation 7. Verifying [[EF P]] = μZ.([[P]] ∪ τEX(Z)) where P = %s:\n", model->prop_names[prop_p]);
     printf("   This equation defines the semantics of the existential finally operator using a least fixpoint.\n");
     printf("   μZ.f(Z) denotes the least fixpoint of the operation f(Z).\n");
-    
+    msg_tag = "Equation 7";
+
     // Get [[P]]
     StateSet p_result;
     eval_atomic_prop(&p_result, model, prop_p);
@@ -295,14 +312,17 @@ void verify_equation7(Model* model, int prop_p) {
     printf("  Manually computed μZ.([[P]] ∪ τEX(Z)) = ");
     print_state_set(&z_current, model, "fixed point");
     printf("  Equation holds: %s\n", equal ? "YES" : "NO");
+    if (!equal) {
+        printf(" [ERROR] %s not holds\n", msg_tag);
+    }
 }
 
 // Function to verify equation 8: [[EG P]] = νZ.([[P]] ∩ τEX(Z))
 void verify_equation8(Model* model, int prop_p) {
-    printf("\n8. Verifying [[EG P]] = νZ.([[P]] ∩ τEX(Z)) where P = %s:\n", model->prop_names[prop_p]);
+    printf("\nEquation 8. Verifying [[EG P]] = νZ.([[P]] ∩ τEX(Z)) where P = %s:\n", model->prop_names[prop_p]);
     printf("   This equation defines the semantics of the existential globally operator using a greatest fixpoint.\n");
     printf("   νZ.f(Z) denotes the greatest fixpoint of the operation f(Z).\n");
-    
+    msg_tag = "Equation 8";
     // Get [[P]]
     StateSet p_result;
     eval_atomic_prop(&p_result, model, prop_p);
@@ -355,14 +375,18 @@ void verify_equation8(Model* model, int prop_p) {
     printf("  Manually computed νZ.([[P]] ∩ τEX(Z)) = ");
     print_state_set(&z_current, model, "fixed point");
     printf("  Equation holds: %s\n", equal ? "YES" : "NO");
+    if (!equal) {
+        printf(" [ERROR] %s not holds\n", msg_tag);
+    }
 }
 
 // Function to verify equation 9: [[AF P]] = μZ.([[P]] ∪ τAX(Z))
 void verify_equation9(Model* model, int prop_p) {
-    printf("\n9. Verifying [[AF P]] = μZ.([[P]] ∪ τAX(Z)) where P = %s:\n", model->prop_names[prop_p]);
+    printf("\nEquation 9. Verifying [[AF P]] = μZ.([[P]] ∪ τAX(Z)) where P = %s:\n", model->prop_names[prop_p]);
     printf("   This equation defines the semantics of the always finally operator using a least fixpoint.\n");
     printf("   μZ.f(Z) denotes the least fixpoint of the operation f(Z).\n");
-    
+    msg_tag = "Equation 9";
+
     // Get [[P]]
     StateSet p_result;
     eval_atomic_prop(&p_result, model, prop_p);
@@ -432,14 +456,18 @@ void verify_equation9(Model* model, int prop_p) {
     printf("  Manually computed μZ.([[P]] ∪ τAX(Z)) = ");
     print_state_set(&z_current, model, "fixed point");
     printf("  Equation holds: %s\n", equal ? "YES" : "NO");
+    if (!equal) {
+        printf(" [ERROR] %s not holds\n", msg_tag);
+    }
 }
 
 // Function to verify equation 10: [[AG P]] = νZ.([[P]] ∩ τAX(Z))
 void verify_equation10(Model* model, int prop_p) {
-    printf("\n10. Verifying [[AG P]] = νZ.([[P]] ∩ τAX(Z)) where P = %s:\n", model->prop_names[prop_p]);
+    printf("\nEquation 10. Verifying [[AG P]] = νZ.([[P]] ∩ τAX(Z)) where P = %s:\n", model->prop_names[prop_p]);
     printf("    This equation defines the semantics of the always globally operator using a greatest fixpoint.\n");
     printf("    νZ.f(Z) denotes the greatest fixpoint of the operation f(Z).\n");
-    
+    msg_tag = "Equation 10";
+
     // Get [[P]]
     StateSet p_result;
     eval_atomic_prop(&p_result, model, prop_p);
@@ -511,15 +539,19 @@ void verify_equation10(Model* model, int prop_p) {
     printf("  Manually computed νZ.([[P]] ∩ τAX(Z)) = ");
     print_state_set(&z_current, model, "fixed point");
     printf("  Equation holds: %s\n", equal ? "YES" : "NO");
+    if (!equal) {
+        printf(" [ERROR] %s not holds\n", msg_tag);
+    }
 }
 
 // Function to verify equation 11: [[EP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τEX(Z)))
 void verify_equation11(Model* model, int prop_p, int prop_q) {
-    printf("\n11. Verifying [[EP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τEX(Z))) where P = %s, Q = %s:\n", 
+    printf("\nEquation 11. Verifying [[EP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τEX(Z))) where P = %s, Q = %s:\n", 
            model->prop_names[prop_p], model->prop_names[prop_q]);
     printf("    This equation defines the semantics of the existential until operator using a least fixpoint.\n");
     printf("    μZ.f(Z) denotes the least fixpoint of the operation f(Z).\n");
-    
+    msg_tag = "Equation 11";
+
     // Get [[P]]
     StateSet p_result;
     eval_atomic_prop(&p_result, model, prop_p);
@@ -579,15 +611,19 @@ void verify_equation11(Model* model, int prop_p, int prop_q) {
     printf("  Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τEX(Z))) = ");
     print_state_set(&z_current, model, "fixed point");
     printf("  Equation holds: %s\n", equal ? "YES" : "NO");
+    if (!equal) {
+        printf(" [ERROR] %s not holds\n", msg_tag);
+    }
 }
 
 // Function to verify equation 12: [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z)))
 void verify_equation12(Model* model, int prop_p, int prop_q) {
-    printf("\n12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = %s, Q = %s:\n", 
+    printf("\nEquation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = %s, Q = %s:\n", 
            model->prop_names[prop_p], model->prop_names[prop_q]);
     printf("    This equation defines the semantics of the universal until operator using a least fixpoint.\n");
     printf("    μZ.f(Z) denotes the least fixpoint of the operation f(Z).\n");
-    
+    msg_tag = "Equation 12";
+
     // Get [[P]]
     StateSet p_result;
     eval_atomic_prop(&p_result, model, prop_p);
@@ -679,4 +715,7 @@ void verify_equation12(Model* model, int prop_p, int prop_q) {
     printf("  Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = ");
     print_state_set(&z_current, model, "fixed point");
     printf("  Equation holds: %s\n", equal ? "YES" : "NO");
+    if (!equal) {
+        printf(" [ERROR] %s not holds\n", msg_tag);
+    }
 }
