@@ -184,21 +184,32 @@ void eval_eu(StateSet* result, StateSet* prop_p, StateSet* prop_q, Model* model)
 
 // Evaluate AU P Q (always until) - states where all paths reach Q through P states
 void eval_au(StateSet* result, StateSet* prop_p, StateSet* prop_q, Model* model) {
-    StateSet not_p, not_q, eu_not_p_not_q, eg_not_q;
+    StateSet not_p, not_q, not_p_and_not_q, eu_result, eg_not_q, temp;
+    
+    // Initialize all state sets
+    init_state_set(&not_p, model->num_states);
+    init_state_set(&not_q, model->num_states);
+    init_state_set(&not_p_and_not_q, model->num_states);
+    init_state_set(&eu_result, model->num_states);
+    init_state_set(&eg_not_q, model->num_states);
+    init_state_set(&temp, model->num_states);
     
     // Calculate ¬P and ¬Q
     complement_state_set(&not_p, prop_p, model->num_states);
     complement_state_set(&not_q, prop_q, model->num_states);
     
-    // Calculate E[¬P U (¬P ∧ ¬Q)]
-    intersect_state_sets(&eu_not_p_not_q, &not_p, &not_q);
-    eval_eu(&eu_not_p_not_q, &not_p, &eu_not_p_not_q, model);
+    // Calculate ¬P ∧ ¬Q properly
+    intersect_state_sets(&not_p_and_not_q, &not_p, &not_q);
+    
+    // Now calculate E[¬Q U (¬P ∧ ¬Q)] correctly
+    eval_eu(&eu_result, &not_q, &not_p_and_not_q, model);
     
     // Calculate EG ¬Q
     eval_eg(&eg_not_q, &not_q, model);
     
-    // A[P U Q] = ¬(E[¬P U (¬P ∧ ¬Q)] ∨ EG ¬Q)
-    StateSet temp;
-    union_state_sets(&temp, &eu_not_p_not_q, &eg_not_q);
+    // Calculate (E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
+    union_state_sets(&temp, &eu_result, &eg_not_q);
+    
+    // A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
     complement_state_set(result, &temp, model->num_states);
 }

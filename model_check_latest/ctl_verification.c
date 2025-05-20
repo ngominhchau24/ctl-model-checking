@@ -617,6 +617,7 @@ void verify_equation11(Model* model, int prop_p, int prop_q) {
 }
 
 // Function to verify equation 12: [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z)))
+// Default takes P = p1n and Q = p2n
 void verify_equation12(Model* model, int prop_p, int prop_q) {
     printf("\nEquation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = %s, Q = %s:\n", 
            model->prop_names[prop_p], model->prop_names[prop_q]);
