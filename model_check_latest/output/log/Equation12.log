@@ -10,10 +10,9 @@ Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P =
     Fixed point reached at iteration 1
   Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
   A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
-  Computed [[AP UQ]] = AU = {0, 5, 7}
+  Computed [[AP UQ]] = AU = {0, 1, 2, 7}
   Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {0, 1, 2, 7}
-  Equation holds: NO
- [ERROR] Equation 12 not holds
+  Equation holds: YES
 
 
 Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = p1n, Q = p2t:
@@ -26,10 +25,9 @@ Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P =
     Fixed point reached at iteration 0
   Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
   A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
-  Computed [[AP UQ]] = AU = {4, 5}
+  Computed [[AP UQ]] = AU = {3, 4, 5, 6}
   Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {3, 4, 5, 6}
-  Equation holds: NO
- [ERROR] Equation 12 not holds
+  Equation holds: YES
 
 
 Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = p1n, Q = p2c:
@@ -42,10 +40,9 @@ Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P =
     Fixed point reached at iteration 0
   Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
   A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
-  Computed [[AP UQ]] = AU = {5, 7, 8}
+  Computed [[AP UQ]] = AU = {7, 8}
   Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {7, 8}
-  Equation holds: NO
- [ERROR] Equation 12 not holds
+  Equation holds: YES
 
 
 Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = p1t, Q = p2n:
@@ -58,10 +55,9 @@ Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P =
     Fixed point reached at iteration 0
   Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
   A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
-  Computed [[AP UQ]] = AU = {1, 3, 6, 8}
+  Computed [[AP UQ]] = AU = {0, 1, 2}
   Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {0, 1, 2}
-  Equation holds: NO
- [ERROR] Equation 12 not holds
+  Equation holds: YES
 
 
 Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = p1t, Q = p2t:
@@ -74,10 +70,9 @@ Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P =
     Fixed point reached at iteration 0
   Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
   A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
-  Computed [[AP UQ]] = AU = {3, 6}
+  Computed [[AP UQ]] = AU = {3, 4, 5, 6}
   Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {3, 4, 5, 6}
-  Equation holds: NO
- [ERROR] Equation 12 not holds
+  Equation holds: YES
 
 
 Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = p1t, Q = p2c:
@@ -91,10 +86,9 @@ Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P =
     Fixed point reached at iteration 1
   Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
   A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
-  Computed [[AP UQ]] = AU = {3, 6, 8}
+  Computed [[AP UQ]] = AU = {6, 7, 8}
   Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {6, 7, 8}
-  Equation holds: NO
- [ERROR] Equation 12 not holds
+  Equation holds: YES
 
 
 Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = p1c, Q = p2n:
@@ -107,10 +101,9 @@ Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P =
     Fixed point reached at iteration 0
   Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
   A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
-  Computed [[AP UQ]] = AU = {2, 4}
+  Computed [[AP UQ]] = AU = {0, 1, 2}
   Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {0, 1, 2}
-  Equation holds: NO
- [ERROR] Equation 12 not holds
+  Equation holds: YES
 
 
 Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = p1c, Q = p2t:
@@ -123,10 +116,9 @@ Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P =
     Fixed point reached at iteration 0
   Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
   A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
-  Computed [[AP UQ]] = AU = {4}
+  Computed [[AP UQ]] = AU = {3, 4, 5, 6}
   Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {3, 4, 5, 6}
-  Equation holds: NO
- [ERROR] Equation 12 not holds
+  Equation holds: YES
 
 
 Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P = p1c, Q = p2c:
@@ -139,10 +131,9 @@ Equation 12. Verifying [[AP UQ]] = μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) where P =
     Fixed point reached at iteration 0
   Alternative calculation: A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q)
   A[P U Q] = ¬(E[¬Q U (¬P ∧ ¬Q)] ∨ EG ¬Q): YES
-  Computed [[AP UQ]] = AU = {4}
+  Computed [[AP UQ]] = AU = {7, 8}
   Manually computed μZ.([[Q]] ∪ ([[P]] ∩ τAX(Z))) = fixed point = {7, 8}
-  Equation holds: NO
- [ERROR] Equation 12 not holds
+  Equation holds: YES
 
 ===== Verification Complete =====
 All 12 equations from Theorem 3 have been verified.
